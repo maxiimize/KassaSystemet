@@ -1,0 +1,3 @@
+100, Kaffe, 44.95kr, styck
+200, Mjölk, 17.95kr, styck
+300, Bananer, 28kr, kilo
