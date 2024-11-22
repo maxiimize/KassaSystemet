@@ -63,7 +63,7 @@ namespace NyttKassasystemUtanMergeKonflikt
                                 int productId = int.Parse(userInputs[0]);
                                 decimal productAmount = decimal.Parse(userInputs[1]);
 
-                                Products product = GetProductById(productId); //Tar fram rätt produkt beroende på produktid
+                                Products product = Products.GetProductById(productId); //Tar fram rätt produkt beroende på produktid
 
                                 if (product != null)
                                 {
@@ -90,23 +90,7 @@ namespace NyttKassasystemUtanMergeKonflikt
             }
         }
 
-        static Products GetProductById(int productId) //Metod för att kunna få fram relevant information om produkter utifrån produktid
-        {
-            if (productId == 100)
-            {
-                return new Products(100, "Kaffe", 44.95m);
-            }
-            else if (productId == 200)
-            {
-                return new Products(200, "Mjölk", 17.95m);
-            }
-            else if (productId == 300)
-            {
-                return new Products(300, "Bananer", 28);
-            }
-
-            return null;
-        }
+        
 
         
     }
