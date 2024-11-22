@@ -4,16 +4,14 @@ namespace NyttKassasystemUtanMergeKonflikt
 {
     internal class Program
     {
-        private static string receiptsFilePath = "../../../amountOfReceipts.txt";
-
-        private static string receiptsFolderPath = "../../../Kvitton";
+        
 
         static void Main(string[] args)
         {
 
-            EnsureReceiptsFolderExists();
+            Receipts.EnsureReceiptsFolderExists();
 
-            int amountOfReceipts = ReadAmountOfReceipts();
+            int amountOfReceipts = Receipts.ReadAmountOfReceipts();
 
 
             //Välkomstmeddelande
@@ -50,7 +48,7 @@ namespace NyttKassasystemUtanMergeKonflikt
                         if (userInputs.Length == 1 && userInputs[0].ToUpper() == "PAY") //Kontrollerar om kunden endast anger ett kommando och om det är 'PAY'
                         {
                             amountOfReceipts += 1;
-                            SaveAmountAmountOfReceipts(amountOfReceipts);
+                            Receipts.SaveAmountAmountOfReceipts(amountOfReceipts);
                             newCheckout.PrintReceipt(amountOfReceipts);
                             Console.WriteLine("Betalning mottagen\nKommandon:\n<productid> <antal/vikt>\nPAY");
                             checkoutRunning = false; //Avslutar while loopen om kunden vill betala.
@@ -110,24 +108,6 @@ namespace NyttKassasystemUtanMergeKonflikt
             return null;
         }
 
-        private static void SaveAmountAmountOfReceipts(int amount)
-        {
-            File.WriteAllText(receiptsFilePath, amount.ToString());
-        }
-
-        private static int ReadAmountOfReceipts()
-        {
-            string content = File.ReadAllText(receiptsFilePath);
-            int.TryParse(content, out int amount);
-            return amount;
-        }
-
-        private static void EnsureReceiptsFolderExists()
-        {
-            if (!Directory.Exists(receiptsFolderPath))
-            {
-                Directory.CreateDirectory(receiptsFolderPath);
-            }
-        }
+        
     }
 }
