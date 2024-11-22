@@ -42,7 +42,7 @@ namespace NyttKassasystemUtanMergeKonflikt
                     bool checkoutRunning = true;
                     while (checkoutRunning)
                     {
-                        Console.WriteLine($"Ange produktID och mängd av produkt (eller skriv 'PAY' för att betala):");
+                        Console.WriteLine($"Ange produktID och mängd av produkt, T.ex '300 2'(eller skriv 'PAY' för att betala):");
                         string[] userInputs = Console.ReadLine().Split(" ");
 
                         string pay = userInputs[0];
