@@ -4,19 +4,14 @@ namespace NyttKassasystemUtanMergeKonflikt
 {
     internal class Program
     {
-        private int UserChoice { get; set; }
-
-        public Program(int userChoice)
-        {
-            UserChoice = userChoice;
-        }
+        
 
         static void Main(string[] args)
         {
 
             Receipts.EnsureReceiptsFolderExists();
 
-            int amountOfReceipts = Receipts.ReadAmountOfReceipts();
+            
 
 
             //Välkomstmeddelande
@@ -30,7 +25,6 @@ namespace NyttKassasystemUtanMergeKonflikt
             {
                 Console.WriteLine("Skriv in antingen 1 eller 2 och sedan Enter för att ta dig vidare.\n1. Ny kund\n2. Stäng program");
                 string input = Console.ReadLine();
-
                 //Kontrollerar det användare anger är null, ogiltigt eller varken 1 eller 2
                 if (string.IsNullOrWhiteSpace(input) || !int.TryParse(input, out int userChoice) || (userChoice != 1 && userChoice != 2))
                 {
@@ -38,7 +32,7 @@ namespace NyttKassasystemUtanMergeKonflikt
                 }
                 else if (userChoice == 1)
                 {
-                    CheckoutStart.StartCheckout(amountOfReceipts);
+                    CheckoutStart.Checkout();
                 }
                 else //Stänger programmet
                 {

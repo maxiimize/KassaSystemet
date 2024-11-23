@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 namespace NyttKassasystemUtanMergeKonflikt.Classes
 {
     internal class CheckoutStart
+
     {
-        public static void StartCheckout(int amountOfReceipts)
+
+        
+
+        public static void Checkout()
         {
+
+            int amountOfReceipts = Receipts.ReadAmountOfReceipts();
 
             Console.WriteLine("Startar ny försäljning. . .");
             Checkout newCheckout = new Checkout();
