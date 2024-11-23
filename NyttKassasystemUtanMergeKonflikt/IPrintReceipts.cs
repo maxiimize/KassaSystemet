@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace NyttKassasystemUtanMergeKonflikt
 {
-    internal interface IMenu
+    internal interface IPrintReceipts
     {
-        public static void Menu()
-        {
-           
-        }
+        void Print(List<string> receiptLines);
     }
 }

@@ -17,7 +17,7 @@ namespace NyttKassasystemUtanMergeKonflikt
             //Välkomstmeddelande
             Console.WriteLine($"Hej och välkommen till Kassystemet Maximus Ultimatus!\n");
 
-            Checkout checkout = null;
+            PrintReceipts checkout = null;
             bool running = true;
             
 
@@ -25,6 +25,7 @@ namespace NyttKassasystemUtanMergeKonflikt
             {
                 Console.WriteLine("Skriv in antingen 1 eller 2 och sedan Enter för att ta dig vidare.\n1. Ny kund\n2. Stäng program");
                 string input = Console.ReadLine();
+
                 //Kontrollerar det användare anger är null, ogiltigt eller varken 1 eller 2
                 if (string.IsNullOrWhiteSpace(input) || !int.TryParse(input, out int userChoice) || (userChoice != 1 && userChoice != 2))
                 {
