@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NyttKassasystemUtanMergeKonflikt.Classes
 {
-    internal class CheckoutEnd : ICheckoutInterface
+    internal class CheckoutEnd
     {
 
 

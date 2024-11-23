@@ -24,7 +24,7 @@ namespace NyttKassasystemUtanMergeKonflikt
 
             Checkout checkout = null;
             bool running = true;
-
+            
 
             while (running)
             {
@@ -36,10 +36,9 @@ namespace NyttKassasystemUtanMergeKonflikt
                 {
                     Console.WriteLine("Felaktig inmatning. Försök igen att ange antingen 1 eller 2 innan du trycker på Enter.");
                 }
-
                 else if (userChoice == 1)
                 {
-                    ICheckoutInterface.StartCheckout(amountOfReceipts);
+                    CheckoutStart.StartCheckout(amountOfReceipts);
                 }
                 else //Stänger programmet
                 {

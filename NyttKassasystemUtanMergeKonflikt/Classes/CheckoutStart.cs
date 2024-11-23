@@ -1,16 +1,16 @@
-﻿using NyttKassasystemUtanMergeKonflikt.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NyttKassasystemUtanMergeKonflikt
+namespace NyttKassasystemUtanMergeKonflikt.Classes
 {
-    internal interface ICheckoutInterface
+    internal class CheckoutStart
     {
         public static void StartCheckout(int amountOfReceipts)
         {
+
             Console.WriteLine("Startar ny försäljning. . .");
             Checkout newCheckout = new Checkout();
 
