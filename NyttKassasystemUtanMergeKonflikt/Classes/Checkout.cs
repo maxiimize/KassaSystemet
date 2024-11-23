@@ -24,7 +24,7 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
         {
 
             string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
-            string folderPath = Path.Combine("../../../../NyttKassasystemUtanMergeKonflikt/Kvitton");
+            string folderPath = ("../../../../NyttKassasystemUtanMergeKonflikt/Kvitton");
             string filePath = Path.Combine(folderPath, $"RECEIPT_{currentDate}_{separator}.txt");
 
 

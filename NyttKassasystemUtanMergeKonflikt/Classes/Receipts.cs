@@ -18,7 +18,7 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
             ReceiptsFolderPath = receiptsFolderPath;
         }
 
-        public static void SaveAmountAmountOfReceipts(int amount)
+        public static void SaveAmountOfReceipts(int amount)
         {
             File.WriteAllText(ReceiptsFilePath, amount.ToString());
         }

@@ -4,8 +4,6 @@ namespace NyttKassasystemUtanMergeKonflikt
 {
     internal class Program
     {
-        
-
         static void Main(string[] args)
         {
 
@@ -48,7 +46,7 @@ namespace NyttKassasystemUtanMergeKonflikt
                         if (userInputs.Length == 1 && userInputs[0].ToUpper() == "PAY") //Kontrollerar om kunden endast anger ett kommando och om det är 'PAY'
                         {
                             amountOfReceipts += 1;
-                            Receipts.SaveAmountAmountOfReceipts(amountOfReceipts);
+                            Receipts.SaveAmountOfReceipts(amountOfReceipts);
                             newCheckout.PrintReceipt(amountOfReceipts);
                             Console.WriteLine("Betalning mottagen\nKommandon:\n<productid> <antal/vikt>\nPAY");
                             checkoutRunning = false; //Avslutar while loopen om kunden vill betala.
@@ -89,9 +87,5 @@ namespace NyttKassasystemUtanMergeKonflikt
                 }
             }
         }
-
-        
-
-        
     }
 }
