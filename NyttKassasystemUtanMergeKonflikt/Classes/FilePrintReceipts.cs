@@ -17,8 +17,9 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
 
         public void Print(List<string> receiptLines)
         {
-            using (StreamWriter writer = new StreamWriter(_filePath))
+            using (StreamWriter writer = new StreamWriter(_filePath, append: true))
             {
+
                 foreach (string line in receiptLines)
                 {
                     writer.WriteLine(line);
