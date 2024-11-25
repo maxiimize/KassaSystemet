@@ -33,7 +33,7 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
 
                     
                     string folderPath = "../../../../NyttKassasystemUtanMergeKonflikt/Kvitton";
-                    string filePath = Path.Combine(folderPath, $"RECEIPT_{DateTime.Now:yyyy-MM-dd}_{amountOfReceipts}.txt");
+                    string filePath = Path.Combine(folderPath, $"RECEIPT_{DateTime.Now:yyyy-MM-dd}.txt");
 
                     IPrintReceipts consolePrinter = new ConsolePrintReceipts();
                     IPrintReceipts filePrinter = new FilePrintReceipts(filePath);

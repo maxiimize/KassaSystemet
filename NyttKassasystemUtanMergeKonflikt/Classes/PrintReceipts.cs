@@ -20,6 +20,8 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
 
         public void PrintReceipt(int separator, params IPrintReceipts[] printers)
         {
+            int amountOfReceipts = Receipts.ReadAmountOfReceipts();
+
             List<string> receiptLines = new List<string> { $"KVITTO   {DateTime.Now:yyyy-MM-dd HH:mm:ss}" };
 
             foreach (CheckoutProduct product in Products)
@@ -28,6 +30,7 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
                 receiptLines.Add(line);
             }
             receiptLines.Add($"Totalt: {TotalCost}kr");
+            receiptLines.Add($"KundID: {amountOfReceipts}");
 
             // Skriv ut med alla tillhandahållna skrivare
             foreach (var printer in printers)
