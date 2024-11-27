@@ -12,53 +12,53 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
         public static void Checkout()
         {
             
+            HandleProducts handleProducts = new HandleProducts();
+            string filePath = "../../../Products.txt";
+            handleProducts.LoadProducts(filePath);
+
             int amountOfReceipts = Receipts.ReadAmountOfReceipts();
 
             Console.WriteLine("Startar ny försäljning...");
-
-            
             PrintReceipts newCheckout = new PrintReceipts();
-
-            
             bool checkoutRunning = true;
+
             while (checkoutRunning)
             {
+
                 Console.WriteLine($"Ange produktID och mängd av produkt, t.ex. '300 2' (eller skriv 'PAY' för att betala):");
-                string[] userInputs = Console.ReadLine().Split(" ");
+                string input = Console.ReadLine();
+                string[] userInputs = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-                if (userInputs.Length == 1 && userInputs[0].ToUpper() == "PAY") 
+                if (userInputs.Length == 1 && userInputs[0].ToUpper() == "PAY")
                 {
-                    amountOfReceipts += 1; 
-                    Receipts.SaveAmountOfReceipts(amountOfReceipts); 
-
                     
+                    amountOfReceipts++;
+                    Receipts.SaveAmountOfReceipts(amountOfReceipts);
+
                     string folderPath = "../../../../NyttKassasystemUtanMergeKonflikt/Kvitton";
-                    string filePath = Path.Combine(folderPath, $"RECEIPT_{DateTime.Now:yyyy-MM-dd}.txt");
+                    string filePathReceipt = Path.Combine(folderPath, $"RECEIPT_{DateTime.Now:yyyy-MM-dd}.txt");
 
                     IPrintReceipts consolePrinter = new ConsolePrintReceipts();
-                    IPrintReceipts filePrinter = new FilePrintReceipts(filePath);
+                    IPrintReceipts filePrinter = new FilePrintReceipts(filePathReceipt);
 
-                    
                     newCheckout.PrintReceipt(amountOfReceipts, consolePrinter, filePrinter);
 
-                    
-                    Console.WriteLine("\nBetalning mottagen.\nKommandon:\n<produktid> <antal/vikt>\nPAY");
-                    checkoutRunning = false; 
+                    Console.WriteLine("\nBetalning mottagen. Kvitto har sparats.\n");
+                    checkoutRunning = false;
                 }
                 else if (userInputs.Length == 2)
                 {
                     try
                     {
                         int productId = int.Parse(userInputs[0]);
-                        decimal productAmount = decimal.Parse(userInputs[1]);
+                        decimal amount = decimal.Parse(userInputs[1]);
 
-                        
-                        Products product = Products.GetProductById(productId);
+                        Products product = handleProducts.GetProductById(productId);
 
                         if (product != null)
                         {
-                            newCheckout.AddProduct(product, productAmount);
-                            Console.WriteLine($"{product.ProductName} har lagts till i din försäljning.");
+                            newCheckout.AddProduct(product, amount);
+                            Console.WriteLine($"{product.ProductName} har lagts till i försäljningen.");
                         }
                         else
                         {
@@ -67,7 +67,11 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
                     }
                     catch (FormatException)
                     {
-                        Console.WriteLine("Felaktig inmatning. Ange ProduktID som ett heltal och mängd som ett nummer med ',' för decimal.");
+                        Console.WriteLine("Felaktig inmatning. ProduktID måste vara ett heltal och mängd ett nummer (använd ',' för decimal).");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Ett fel uppstod: {ex.Message}");
                     }
                 }
                 else
@@ -76,8 +80,6 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
                 }
             }
         }
-
-
     }
 }
 

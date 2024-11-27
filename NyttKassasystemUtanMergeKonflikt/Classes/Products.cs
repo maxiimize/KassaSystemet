@@ -14,32 +14,9 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
 
         public decimal ProductPrice { get; set; }
 
+        public string ProductPriceType { get; set; }
 
 
-        public Products(int productId, string productName, decimal productPrice)
-        {
-            ProductId = productId;
-            ProductPrice = productPrice;
-            ProductName = productName;
-
-        }
-
-        public static Products GetProductById(int productId) //Metod för att kunna få fram relevant information om produkter utifrån produktid
-        {
-            if (productId == 100)
-            {
-                return new Products(100, "Kaffe", 44.95m);
-            }
-            else if (productId == 200)
-            {
-                return new Products(200, "Mjölk", 17.95m);
-            }
-            else if (productId == 300)
-            {
-                return new Products(300, "Bananer", 28);
-            }
-
-            return null;
-        }
+        
     }
 }

@@ -11,8 +11,6 @@ namespace NyttKassasystemUtanMergeKonflikt
 
             Receipts.EnsureReceiptsFolderExists();
 
-            
-
 
             //Välkomstmeddelande
             Console.WriteLine($"Hej och välkommen till Kassystemet Maximus Ultimatus!\n");
@@ -29,7 +27,7 @@ namespace NyttKassasystemUtanMergeKonflikt
                 //Kontrollerar det användare anger är null, ogiltigt eller varken 1 eller 2
                 if (string.IsNullOrWhiteSpace(input) || !int.TryParse(input, out int userChoice) || (userChoice != 1 && userChoice != 2))
                 {
-                    Console.WriteLine("Felaktig inmatning. Försök igen att ange antingen 1 eller 2 innan du trycker på Enter.");
+                    Console.WriteLine("\nFelaktig inmatning:");
                 }
                 else if (userChoice == 1)
                 {
@@ -37,7 +35,7 @@ namespace NyttKassasystemUtanMergeKonflikt
                 }
                 else //Stänger programmet
                 {
-                    Console.WriteLine("Stänger program. . ."); //Avslutar kassasystemet
+                    Console.WriteLine("Stänger program. . .");
                     running = false;
                 }
             }
