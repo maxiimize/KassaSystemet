@@ -12,11 +12,7 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
 
         private static string ReceiptsFolderPath = "../../../Kvitton";
 
-        public Receipts(string receiptsFilePath, string receiptsFolderPath)
-        {
-            ReceiptsFilePath = receiptsFilePath;
-            ReceiptsFolderPath = receiptsFolderPath;
-        }
+        
 
         public static void SaveAmountOfReceipts(int amount)
         {
