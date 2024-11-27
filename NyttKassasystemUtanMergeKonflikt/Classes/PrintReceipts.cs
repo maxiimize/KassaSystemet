@@ -31,7 +31,7 @@ namespace NyttKassasystemUtanMergeKonflikt.Classes
                 receiptLines.Add(line);
             }
             receiptLines.Add($"Totalt: {TotalCost}kr");
-            receiptLines.Add($"KundID: {amountOfReceipts}\n");
+            receiptLines.Add($"KvittoID: {amountOfReceipts}\n");
             receiptLines.Add("---------------------------------------------------\n---------------------------------------------------");
 
 
